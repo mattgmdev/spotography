@@ -97,6 +97,7 @@ const styleSrcUrls = [
   "https://api.tiles.mapbox.com/",
   "https://fonts.googleapis.com/",
   "https://use.fontawesome.com/",
+  "https://images.unsplash.com/",
 ]
 const connectSrcUrls = [
   "https://fonts.googleapis.com/",
@@ -104,17 +105,19 @@ const connectSrcUrls = [
   "https://a.tiles.mapbox.com/",
   "https://b.tiles.mapbox.com/",
   "https://events.mapbox.com/",
+  "https://images.unsplash.com/",
 ]
 
 const fontSrcUrls = [
   "https://fonts.googleapis.com/",
   "https://fonts.gstatic.com",
+  "https://images.unsplash.com/",
 ]
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'", ...connectSrcUrls],
+      connectSrc: ["'self'", "'unsafe-inline'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
