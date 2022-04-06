@@ -81,7 +81,7 @@ app.use(flash())
 app.use(
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
 )
-
+/* 
 const scriptSrcUrls = [
   "https://stackpath.bootstrapcdn.com/",
   "https://api.tiles.mapbox.com/",
@@ -119,7 +119,7 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: [...connectSrcUrls],
+      connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
@@ -139,7 +139,7 @@ app.use(
       fontSrc: ["'self'", ...fontSrcUrls],
     },
   })
-)
+) */
 
 app.use(passport.initialize())
 app.use(passport.session())
