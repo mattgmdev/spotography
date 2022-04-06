@@ -87,6 +87,7 @@ const scriptSrcUrls = [
   "https://kit.fontawesome.com/",
   "https://cdnjs.cloudflare.com/",
   "https://cdn.jsdelivr.net",
+  "https://fonts.googleapis.com/",
 ]
 const styleSrcUrls = [
   "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css",
