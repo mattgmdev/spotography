@@ -119,7 +119,13 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'", ...connectSrcUrls],
+      connectSrc: [
+        "'self'",
+        "blob:",
+        "data:",
+        "'unsafe-inline'",
+        ...connectSrcUrls,
+      ],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
@@ -134,6 +140,7 @@ app.use(
         "https://a.tiles.mapbox.com/",
         "https://b.tiles.mapbox.com/",
         "https://events.mapbox.com/",
+        "https://api.tiles.mapbox.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],
     },
