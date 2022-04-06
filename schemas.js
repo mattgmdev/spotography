@@ -32,7 +32,7 @@ module.exports.photoplaceSchema = Joi.object({
     location: Joi.string().required().escapeHTML(),
     description: Joi.string().required().escapeHTML(),
     category: Joi.string().required().escapeHTML(),
-    focal: Joi.number().required(),
+    focal: Joi.string().required(),
     subject: Joi.string().required().escapeHTML(),
   }).required(),
   deleteImages: Joi.array(),

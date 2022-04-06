@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
 <div class="row">
-  <h1 class="text-center">Edit photography place</h1>
+  <h1 class="text-center">Modifica Photography place</h1>
   <div class="col-md-6 offset-md-3">
     <form
       action="/photoplaces/<%=photoplace._id%>?_method=PUT"
@@ -10,7 +10,7 @@
       enctype="multipart/form-data"
     >
       <div class="mb-3">
-        <label class="form-label" for="title">Title</label>
+        <label class="form-label" for="title">Nome</label>
         <input
           class="form-control"
           type="text"
@@ -19,10 +19,10 @@
           value="<%= photoplace.title%>"
           required
         />
-        <div class="valid-feedback">looks good!</div>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="location">Location</label>
+        <label class="form-label" for="location">Località</label>
         <input
           class="form-control"
           type="text"
@@ -31,28 +31,28 @@
           value="<%= photoplace.location%>"
           required
         />
-        <div class="valid-feedback">looks good!</div>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="price">Price</label>
+        <label class="form-label" for="price">Costi</label>
         <div class="input-group">
           <span class="input-group-text" id="price-label">€</span>
           <input
             type="text"
             class="form-control"
             id="price"
-            placeholder="0.00"
+            value="0"
             aria-label="Price"
             aria-describedby="price-label"
             name="photoplace[price]"
             value="<%= photoplace.price%>"
             required
           />
-          <div class="valid-feedback">looks good!</div>
+          <div class="valid-feedback">Ok, perfetto!</div>
         </div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="category">Category</label>
+        <label class="form-label" for="category">Categoria</label>
         <input
           class="form-control"
           type="text"
@@ -61,10 +61,10 @@
           value="<%= photoplace.category%>"
           required
         />
-        <div class="valid-feedback">looks good!</div>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="subject">Subject</label>
+        <label class="form-label" for="subject">Soggetto</label>
         <input
           class="form-control"
           type="text"
@@ -73,22 +73,29 @@
           value="<%= photoplace.subject%>"
           required
         />
-        <div class="valid-feedback">looks good!</div>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="focal">Focal</label>
-        <input
+        <label class="form-label" for="focal">Focale consigliata</label>
+        <select
           class="form-control"
           type="text"
           id="focal"
+          placeholder="Seleziona"
           name="photoplace[focal]"
-          value="<%= photoplace.focal%>"
           required
-        />
-        <div class="valid-feedback">looks good!</div>
+        >
+          <option value="" disabled selected>
+            Seleziona tipologia obiettivo
+          </option>
+          <option value="Macro">Macro</option>
+          <option value="Wide">Wide</option>
+          <option value="Zoom">Zoom</option>
+        </select>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
-        <label class="form-label" for="description">description</label>
+        <label class="form-label" for="description">Descrizione</label>
         <textarea
           class="form-control"
           type="text"
@@ -98,7 +105,7 @@
         >
 <%= photoplace.description%></textarea
         >
-        <div class="valid-feedback">looks good!</div>
+        <div class="valid-feedback">Ok, perfetto!</div>
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">Aggiungi altre immagini</label>
