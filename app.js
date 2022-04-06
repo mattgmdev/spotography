@@ -78,7 +78,9 @@ app.use(flash())
   helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
 ) */
 
-app.use(helmet({ crossOriginEmbedderPolicy: false }))
+app.use(
+  helmet({ contentSecurityPolicy: false, crossOriginEmbedderPolicy: false })
+)
 
 const scriptSrcUrls = [
   "https://stackpath.bootstrapcdn.com/",
@@ -117,7 +119,7 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: ["'self'", "blob:", ...connectSrcUrls],
+      connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
@@ -128,6 +130,10 @@ app.use(
         "data:",
         "https://res.cloudinary.com/dh5z8rk4p/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
         "https://images.unsplash.com/",
+        "https://api.mapbox.com/",
+        "https://a.tiles.mapbox.com/",
+        "https://b.tiles.mapbox.com/",
+        "https://events.mapbox.com/",
       ],
       fontSrc: ["'self'", ...fontSrcUrls],
     },
