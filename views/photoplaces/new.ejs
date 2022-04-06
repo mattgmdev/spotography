@@ -1,0 +1,123 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">New photography place</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/photoplaces"
+      method="POST"
+      class="validated-form"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="photoplace[title]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="photoplace[location]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+
+      <!-- <div class="mb-3">
+        <label class="form-label" for="image">Image URL</label>
+        <input
+          class="form-control"
+          type="text"
+          id="image"
+          name="photoplace[image]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div> 
+      </div>-->
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">€</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="Price"
+            aria-describedby="price-label"
+            name="photoplace[price]"
+            required
+          />
+          <div class="valid-feedback">Ok, perfetto!</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">description</label>
+        <input
+          class="form-control"
+          type="text"
+          id="description"
+          name="photoplace[description]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="category">Category</label>
+        <input
+          class="form-control"
+          type="text"
+          id="category"
+          name="photoplace[category]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="subject">Subject</label>
+        <input
+          class="form-control"
+          type="text"
+          id="subject"
+          name="photoplace[subject]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="focal">Focal</label>
+        <input
+          class="form-control"
+          type="text"
+          id="focal"
+          name="photoplace[focal]"
+          required
+        />
+        <div class="valid-feedback">Ok, perfetto!</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Scegli immagini</label>
+        <input
+          class="form-control"
+          type="file"
+          name="image"
+          id="image"
+          multiple
+        />
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-success">Add Photoplace</button>
+      </div>
+    </form>
+    <a class="link-light" href="/photoplaces">All Photoplaces</a>
+  </div>
+</div>

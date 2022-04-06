@@ -1,0 +1,137 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <h1 class="text-center">Edit photography place</h1>
+  <div class="col-md-6 offset-md-3">
+    <form
+      action="/photoplaces/<%=photoplace._id%>?_method=PUT"
+      method="POST"
+      class="validated-form"
+      novalidate
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="photoplace[title]"
+          value="<%= photoplace.title%>"
+          required
+        />
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="photoplace[location]"
+          value="<%= photoplace.location%>"
+          required
+        />
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">€</span>
+          <input
+            type="text"
+            class="form-control"
+            id="price"
+            placeholder="0.00"
+            aria-label="Price"
+            aria-describedby="price-label"
+            name="photoplace[price]"
+            value="<%= photoplace.price%>"
+            required
+          />
+          <div class="valid-feedback">looks good!</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="category">Category</label>
+        <input
+          class="form-control"
+          type="text"
+          id="category"
+          name="photoplace[category]"
+          value="<%= photoplace.category%>"
+          required
+        />
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="subject">Subject</label>
+        <input
+          class="form-control"
+          type="text"
+          id="subject"
+          name="photoplace[subject]"
+          value="<%= photoplace.subject%>"
+          required
+        />
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="focal">Focal</label>
+        <input
+          class="form-control"
+          type="text"
+          id="focal"
+          name="photoplace[focal]"
+          value="<%= photoplace.focal%>"
+          required
+        />
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">description</label>
+        <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="photoplace[description]"
+          required
+        >
+<%= photoplace.description%></textarea
+        >
+        <div class="valid-feedback">looks good!</div>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Aggiungi altre immagini</label>
+        <input
+          class="form-control"
+          type="file"
+          name="image"
+          id="image"
+          multiple
+        />
+      </div>
+      <div class="mb-3 label-delete">
+        <% photoplace.images.forEach(function(img,i) {%>
+        <img src="<%=img.thumbnail%>" class="img-thumbnail" alt="" />
+        <div class="form-check-inline">
+          <input
+            type="checkbox"
+            id="image-<%=i%>"
+            name="deleteImages[]"
+            value="<%=img.filename%>"
+          />
+          <label for="image-<%=i%>">Eliminare?</label>
+        </div>
+        <% }) %>
+      </div>
+      <div class="mb-3">
+        <button class="btn btn-info">Save changes</button>
+      </div>
+    </form>
+    <a
+      class="btn btn-secondary text-light"
+      href="/photoplaces/<%= photoplace._id%>"
+      >Back to Photoplaces</a
+    >
+  </div>
+</div>
