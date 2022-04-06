@@ -119,13 +119,7 @@ app.use(
   helmet.contentSecurityPolicy({
     directives: {
       defaultSrc: [],
-      connectSrc: [
-        "'self'",
-        "blob:",
-        "data:",
-        "'unsafe-inline'",
-        ...connectSrcUrls,
-      ],
+      connectSrc: [...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
       workerSrc: ["'self'", "blob:"],
