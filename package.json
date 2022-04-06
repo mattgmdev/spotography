@@ -4,7 +4,8 @@
   "description": "Web App where photographers can share good place for shoot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "Matteo Gian Marco Decio",
