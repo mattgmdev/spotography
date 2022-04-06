@@ -99,17 +99,21 @@ const styleSrcUrls = [
   "https://use.fontawesome.com/",
 ]
 const connectSrcUrls = [
+  "https://fonts.googleapis.com/",
   "https://api.mapbox.com/",
   "https://a.tiles.mapbox.com/",
   "https://b.tiles.mapbox.com/",
   "https://events.mapbox.com/",
 ]
 
-const fontSrcUrls = []
+const fontSrcUrls = [
+  "https://fonts.googleapis.com/",
+  "https://fonts.gstatic.com",
+]
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
-      defaultSrc: ["self"],
+      defaultSrc: [],
       connectSrc: ["'self'", ...connectSrcUrls],
       scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
       styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
